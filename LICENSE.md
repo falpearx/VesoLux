@@ -1,5 +1,3 @@
-Copyright (c) 2021-2023 VesoLux
-
 Creative Commons Legal Code
 
 CC0 1.0 Universal
