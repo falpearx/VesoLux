@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang = "en" class="h-100">
+<head>
+<%-include("../partials/head-dash.ejs")%> 
+</head>
+
+<body class="d-flex h-300 text-center text-bg-dark">
+
+  
+    <div class="cover-container d-flex w-100 h-200 p-3 mx-auto flex-column">
+      <header class="mb-auto">
+        <div>
+        <nav class="nav nav-masthead justify-content-center float-md-center">            
+          <li><a href="/" class="nav-link fw-bold py-1 px-1 link-light">Home</a></li>
+          <li><a href="/features" class="nav-link fw-bold py-1 px-1 link-light">Features</a></li>
+          <li><a href="/purchase" class="nav-link fw-bold py-1 px-1 link-light">Purchase</a></li>
+          <li><a href="/discord" class="nav-link fw-bold py-1 px-1 link-light">Discord</a></li>
+          <li><a href="/dashboard" class="nav-link fw-bold py-1 px-1 link-secondary">Dashboard</a></li>
+        </nav>
+      </div>
+      </header>
+      <div class="container py-5" >
+        <main class="px-3">
+          
+
+
+
+  
+<div class="container py-4" >
+
+
+      <div class="row align-items-md-stretch">
+        
+        <div class="">
+          <div class="h-100 p-5 text-bg-dark rounded-3 border rounded-3">
+            <% if (user.data && user.guilds) { %>
+              <div class="profile">
+                  <img alt src="<%= user && user.data && user.data.avatar || null %>">
+                  <h1 class="name"> <%= "Welcome "+user && "Welcome "+user.data && "Welcome "+user.data.tag || "NOT FOUND" %> </h1>
+              </div>
+          <% } %>
+          <% if (!user.data && !user.guilds) { %>
+            <h1>Login To Dashboard.</h1>
+            <p class="lead">Login Dashboard On Discord. Click Button!</p>
+          <% } %>
+  
+                <p class="lead">
+                  <a href="<%= user && user.data && user.guilds ? '/logout' : '/login' %>" class="btn btn-lg btn-secondary fw-bold border-white bg-dark"><%= user && user.data && user.guilds ? "Logout" : "Login" %></a>
+                </p>         
+        </a>
+        <% if (user.data && user.guilds) { %>
+            <h2>Account Details</h2>
+            <p class = "u-text">Plan : <%= datas && datas.plan || "Failed To Load"%></p>
+            <p class = "u-text">Ip : <%= datas && datas.ip || "Failed To Load"%></p>
+            <p class = "u-text">Hwid : <%= datas && datas.hwid || "Failed To Load"%></p>
+            <p class = "u-text">Key : <%= datas && datas.key || "Failed To Load"%></p>
+            <p class = "u-text">Aviable Hwid Resets : <%= datas && datas.ahwid || "Failed To Load"%></p>
+            <p class = "u-text">Aviable Ip Resets : <%= datas && datas.aip || "Failed To Load"%></p>
+            <div>
+            <a class="btn btn-outline-light" href="/gscript">Generete Script</a>
+            <a class="btn btn-outline-light" href="/resethwid">Reset Hwid</a>
+            <a class="btn btn-outline-light" href="/resetip">Reset Ip</a>
+            </div>
+            <h2>Script Details</h2>
+            <p class = "u-text">Total Executions : <%= datas && datas.tex || "Failed To Load"%></p>
+            <p class = "u-text">Total Authed Users : <%= datas && datas.tau || "Failed To Load"%></p>
+            <p class = "u-text">Authed Users : <%= datas && datas.tus || "Failed To Load"%></p>
+            <% } %>
+          </div>
+        </div>
+
+      </div>
+    </div> 
+        </main>
+      </div>
+        <footer class="mt-auto text-white-50">
+          <p>Veso Lux - Dash Board</p>
+        </footer>
+      </div>
+
+</body>
+</html> 
